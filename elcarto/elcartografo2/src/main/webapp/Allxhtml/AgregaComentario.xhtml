@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <f:view>
+        <h:head>
+          <title>Agrega Comentario</title>
+           <h:outputStylesheet name="../resources/css/style.css"/>
+   
+        </h:head>
+ <h:body>
+          <header>
+            <h1>
+             Comenta un marcador.
+            </h1>
+              </header>        
+                        <h:form>                                       
+                            <br><p:inputNumber id="idMarcador" value="#{agregaComentario.idMarcador}" placeholder="Marcador"/></br>
+                            <br><p:inputText id="comentario" value="#{agregaComentario.comentario}" placeholder="Comentario"/></br>
+                            <p:commandButton action="#{agregaComentario.agregaComentario()}" value="Aceptar" ajax="false" />
+                        </h:form>
+          
+        </h:body>	    
+    </f:view>
+</html>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <f:view>
+        <h:head id="main-header">
+	<title>Edita Datos</title>
+ 
+        <link rel="stylesheet" href="../resources/css/style.css">
+            </link>
+        <header id="main-header">
+		
+		<a id="logo-header" href="../Admin/PaginaAdminIH.xhtml">
+			<span class="site-name">El Cartografo</span>
+		</a> <!-- / #logo-header -->
+ 
+		<!-- En esta parte tengo que editar a donde redirecciona dependiendo del usuario -->
+ 
+	</header><!-- / #main-header -->
+ 
+    </h:head>
+ <h:body>
+          <header>
+            <h1>
+             Editar tus datos
+            </h1>
+              </header>        
+                        <h:form>
+                            <p:inputText id="nombre" value="#{editaD.nombre}" style="width:25%" placeholder="Nombre(s):#{controladorSesion.usrNombre}"/> <br/>
+                            <p:inputText id="apellidosP" value="#{editaD.apaterno}" style="width:25%" placeholder="Apellido Paterno:#{controladorSesion.usrAPaterno}"/> <br/>
+                            <p:inputText id="apellidosM" value="#{editaD.amaterno}" style="width:25%" placeholder="Apellido Materno:#{controladorSesion.usrAMaterno}"/> <br/>
+                            <p:inputText id="correo" value="#{editaD.correo}" style="width:25%" placeholder="Correo electrónico: #{controladorSesion.usrCorreo}"/> <br/>
+                            <p:inputText id="contrasenia" value="#{editaD.contrasenia}" style="width:25%" placeholder="Contraseña actual: #{controladorSesion.usrContrasena}"/> <br/>                           
+                            <p:commandButton action="#{editaD.editaDatos(tabla.getListUsrs(4))}" value="Aceptar" ajax="false" />
+             
+                        </h:form>
+                        
+                        <p:dialog header="Datos Editados" widgetVar="dlg1" showEffect="explode" hideEffect="bounce" minHeight="100">
+                            <h:outputText value="Los datos se han editado."/>
+                            <h:commandButton type="submit" value="Regresar a la Pagina Principal" action="#{controladorSesion.redirect}"><f:ajax/></h:commandButton>       
+                        </p:dialog>
+                
+                        <p:dialog header="Correo incorrecto" widgetVar="dlg2" showEffect="explode" hideEffect="bounce" minHeight="100">
+                            <h:outputText value="Es necesario que se de un correo registrado en la base de datos."/> 
+                        </p:dialog>
+        </h:body>	    
+    </f:view>
+</html>
+
+
