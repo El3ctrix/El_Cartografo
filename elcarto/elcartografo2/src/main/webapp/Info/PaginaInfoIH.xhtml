@@ -41,10 +41,20 @@ and open the template in the editor.
 		</nav><!-- / nav -->
  
 	</header>
-    <p:gmap center="23.382390, -102.291477" zoom="5" type="roadmap" style="width:100%;height:700px" />
-	<footer id="main-footer">
-		<p> LABTEAM SOFTWARE 2019</p>
-	</footer> <!-- / #main-footer -->	
-  </h:body>
+    <p:gmap center="23.382390, -102.291477" zoom="5" type="roadmap" style="width:100%;height:700px" model="#{verMarcadores.simpleModel}">
+         <p:ajax event="overlaySelect" listener="#{verMarcadores.onMarkerSelect}" />
+        
+        <p:gmapInfoWindow id="infoWindow">
+        
+            <p:outputPanel style="text-align: center; display: block; margin: auto">
+           
+                <h:outputText value="#{verMarcadores.marker.title}"/>                
+                <h:outputText value="#{verMarcadores.marker.data}"/>
+                
+            </p:outputPanel>
+        
+        </p:gmapInfoWindow>
+    </p:gmap>
+    </h:body>
     </f:view>
 </html>

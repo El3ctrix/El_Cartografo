@@ -7,8 +7,8 @@ controlador/Mensajes.class
 controlador/RegistrarUsuario.class
 modelo/Usuario.class
 modelo/TemaDAO.class
-controlador/EliminaTema.class
 controlador/EliminarComentarista.class
+controlador/EliminaTema.class
 controlador/EliminaMarcador.class
 modelo/Tema.class
 controlador/VerMarcadores.class
@@ -18,8 +18,8 @@ controlador/FilterSessionComentarista.class
 controlador/EliminaComentario.class
 modelo/Marcador.class
 controlador/BuscarPorCorreo.class
-modelo/HibernateUtil.class
 modelo/UsuariosService.class
+modelo/HibernateUtil.class
 modelo/UsuarioDAO.class
 controlador/ControladorSesion.class
 controlador/AgregarInformador.class
