@@ -14,6 +14,7 @@ import javax.faces.bean.RequestScoped;
 import java.security.SecureRandom;
 import java.math.BigInteger;
 import javax.mail.MessagingException;
+import org.primefaces.PrimeFaces;
 
 /**
  *
@@ -137,6 +138,7 @@ public class AgregarInformador {
     }
     
     public void agregarInformador()throws MessagingException{
+        PrimeFaces context = PrimeFaces.current();
         separaApellido(apellido);
         Usuario u = new Usuario();
         u.setNombre(nombre);
@@ -146,10 +148,11 @@ public class AgregarInformador {
         u.setAmaterno(amaterno);
         u.setContrasenia(generaContrasenia(10));  
         u.setRol("Informador");
-        EmailSender ems = new EmailSender();
+        EmailSender ems = new EmailSender("Informador",u.getContrasenia());
         ems.enviaCorreo(correo);
         UsuarioDAO udb = new UsuarioDAO();
         udb.save(u);
+        context.executeScript("PF('dlg1').show();");
         
     }
 

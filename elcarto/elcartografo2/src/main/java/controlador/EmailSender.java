@@ -19,6 +19,17 @@ import javax.mail.internet.*;
 public class EmailSender {
     private String from = "elcartografoadm1@gmail.com";
     private String password = "elcartografo1";
+    private String rol;
+    private String contra;
+    
+    public EmailSender(String rol){
+        this.rol = rol;
+    }
+    
+    public EmailSender(String rol, String contra){
+        this.rol = rol;
+        this.contra = contra;
+    }
     
     public void enviaCorreo(String to) throws MessagingException{
         Session session = creaSesion();
@@ -45,7 +56,12 @@ public class EmailSender {
     public void preparaMensaje(MimeMessage message, String to) throws MessagingException{
         message.setFrom(new InternetAddress(from));
         message.addRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-        message.setSubject("Mensaje de Prueba");
-        message.setText("Esto es una prueba alv, esto es sad");
+        message.setSubject("Registro en El Cartografo");
+        if(this.rol.equals("Informador")){
+            message.setText("Se ha registrado satisfactoriamente,"
+                    + "ya puede acceder como Informador, aqui su contraseña: "+this.contra);
+        }else{
+            message.setText("Se ha registrado satisfactoriamente, ya puede accedar como Comentarista.");
+        }
     }
 }

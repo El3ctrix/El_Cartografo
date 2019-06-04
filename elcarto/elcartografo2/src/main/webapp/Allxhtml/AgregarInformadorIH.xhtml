@@ -60,6 +60,11 @@ and open the template in the editor.
  
         <p:commandButton id="submitButton" value="Save" update="@parent" action="#{agregarInformador.agregarInformador()}"/>
     </p:panel>
+     
+    <p:dialog header="Informador Agregado" widgetVar="dlg1" showEffect="explode" hideEffect="bounce" minHeight="100">
+        <h:outputText value="Se ha agregado el Informador con los datos especificados."/>
+        <h:commandButton type="submit" value="Regresar a la Pagina Principal" action="/Admin/PaginaAdminIH?faces-redirect=true"><f:ajax/></h:commandButton>       
+    </p:dialog>
 </h:form>
 
 </h:body>

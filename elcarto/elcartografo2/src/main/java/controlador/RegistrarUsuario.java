@@ -8,6 +8,7 @@ package controlador;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
 import javax.faces.bean.ManagedBean;
+import javax.mail.MessagingException;
 /**
  *
  * @author francisco
@@ -76,14 +77,16 @@ public class RegistrarUsuario {
         return nuevaCadena;
     }
     
-    public void agregaUsuario(){
+    public void agregaUsuario()throws MessagingException{
         Usuario u = new Usuario();
         u.setIdusuario(conc(nombre,correo,apaterno));
         u.setNombre(nombre);
         u.setCorreo(correo);
         u.setApaterno(apaterno);
         u.setContrasenia(contrasenia);
-        u.setRol("Comentarista");           
+        u.setRol("Comentarista");    
+        EmailSender ems = new EmailSender("Comentarista");
+        ems.enviaCorreo(correo);
         UsuarioDAO udb = new UsuarioDAO();
         
         udb.save(u);
