@@ -5,16 +5,19 @@
  */
 package controlador;
 
+import java.io.Serializable;
 import java.util.List;
 import modelo.TemaDAO;
 import modelo.Tema;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 /**
  *
  * @author alexrl
  */
 @ManagedBean
-public class VerTema {
+@SessionScoped
+public class VerTema implements Serializable{
     
     private Tema tema;
     private List<Tema> temas;
@@ -40,4 +43,15 @@ public class VerTema {
         this.temas = temas;
     }
     
+    public Tema getTemaId(String nombre){
+        if(nombre == null){
+            throw new IllegalArgumentException("Ingresa el nombre del tema");            
+        }
+        for(Tema tema1 : temas){
+            if(nombre.equals(tema1.getNombre())){
+                return tema1;
+            }
+        }
+        return null;
+    }
 }

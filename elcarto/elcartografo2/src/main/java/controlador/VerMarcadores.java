@@ -32,14 +32,18 @@ public class VerMarcadores implements Serializable{
         List<Marcador> marcadores = mdb.findAll();
         if(marcadores != null && !marcadores.isEmpty()){
             for(Marcador m :marcadores){
-                System.out.println("Marcador: " + m.getLatitud() + ", " + m.getLongitud());
-                    LatLng cord = new LatLng(m.getLatitud(),m.getLongitud());
-                    simpleModel.addOverlay(new Marker(cord,m.getNombre(),m.toString()));
+                System.out.println("Marcador: " + m.getLatitud() + ", " + m.getLongitud()+ m.getDescripcion());
+                System.out.print(m.toString());
+                LatLng cord = new LatLng(m.getLatitud(),m.getLongitud());
+                simpleModel.addOverlay(new Marker(cord,m.getNombre(),m.getDescripcion()));                
             }
         }
     }
-
-    public MapModel getSimpleModel() {
+    /**
+     *
+     * @return simpleModel
+     */
+    public MapModel getSimpleModel(){
         return simpleModel;
     }
     

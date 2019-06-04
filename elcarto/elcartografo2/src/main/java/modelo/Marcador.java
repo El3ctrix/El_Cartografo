@@ -135,6 +135,4 @@ public class Marcador  implements java.io.Serializable {
     public void setComentarios(Set comentarios) {
         this.comentarios = comentarios;
     }
-}
-
-
+}        

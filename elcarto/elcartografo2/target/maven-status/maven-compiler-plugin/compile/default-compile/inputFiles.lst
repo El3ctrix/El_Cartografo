@@ -20,6 +20,8 @@
 /home/alexrl/Documentos/SextoSemestre/IS/elChido/El_Cartografo/elcarto/elcartografo2/src/main/java/controlador/ConvertidorTema.java
 /home/alexrl/Documentos/SextoSemestre/IS/elChido/El_Cartografo/elcarto/elcartografo2/src/main/java/controlador/FilterSessionInformador.java
 /home/alexrl/Documentos/SextoSemestre/IS/elChido/El_Cartografo/elcarto/elcartografo2/src/main/java/controlador/EliminaTema.java
+/home/alexrl/Documentos/SextoSemestre/IS/elChido/El_Cartografo/elcarto/elcartografo2/src/main/java/controlador/TemaConverter.java
+/home/alexrl/Documentos/SextoSemestre/IS/elChido/El_Cartografo/elcarto/elcartografo2/src/main/java/controlador/IlegalArgumentException.java
 /home/alexrl/Documentos/SextoSemestre/IS/elChido/El_Cartografo/elcarto/elcartografo2/src/main/java/controlador/ColocaMarcador.java
 /home/alexrl/Documentos/SextoSemestre/IS/elChido/El_Cartografo/elcarto/elcartografo2/src/main/java/modelo/TemaDAO.java
 /home/alexrl/Documentos/SextoSemestre/IS/elChido/El_Cartografo/elcarto/elcartografo2/src/main/java/controlador/EliminaComentario.java

@@ -38,17 +38,7 @@ public class ColocaMarcador implements Serializable{
     private double longitud;
     private String descripcion;
     private String datos;
-    private List<Tema> listaTemas;
-        
-    public void init(){
-        this.centro = new LatLng( 17.0669, -96.7203);
-        this.draggableModel = new DefaultMapModel();
-        this.marcador = new Marker(centro,"Arrástrame");
-        this.draggableModel.addOverlay(marcador);
-        this.marcador.setDraggable(true);        
-        this.latitud = marcador.getLatlng().getLat();
-        this.longitud = marcador.getLatlng().getLng();
-    }
+    private List<Tema> listaTemas;        
     
     public List<Tema> getListaTemas(){
         TemaDAO temaDao = new TemaDAO();
@@ -150,20 +140,20 @@ public class ColocaMarcador implements Serializable{
     
     public void colocaMarcador(Usuario usuario){    
         Marcador m = new Marcador();
-        TemaDAO temaDAO = new TemaDAO();        
+        TemaDAO temaDAO = new TemaDAO();
         MarcadorDAO mdao = new MarcadorDAO();
-            setTema(temaDAO.find(this.getCadenaTema()));
-            
-            m.setTema(tema);
-            m.setUsuario(usuario);
-            m.setNombre(nombre);
-            m.setCorreo(usuario.getCorreo());
-            m.setLatitud(latitud);
-            m.setLongitud(longitud);
-            m.setDescripcion(descripcion);
-            m.setDatos(datos);        
-                
-            mdao.save(m);
+        setTema(temaDAO.find(this.getCadenaTema()));
+        
+        m.setTema(tema);
+        m.setUsuario(usuario);
+        m.setNombre(nombre);
+        m.setCorreo(usuario.getCorreo());
+        m.setLatitud(latitud);
+        m.setLongitud(longitud);
+        m.setDescripcion(descripcion);
+        m.setDatos(datos);
+        
+        mdao.save(m);
         
     }
 }
