@@ -49,7 +49,7 @@
         </script>
    
         <p:growl id="messages" showDetail="detail"/>
-        <p:gmap id="gmap" center="23.382390, -102.291477" zoom="7" type="roadmap" style="width:100%;height:700px"
+        <p:gmap id="gmap" center="23.382390, -102.291477" zoom="5" type="roadmap" style="width:100%;height:700px"
                 model="#{colocaMarcador.draggableModel}" onPointClick="handlePointClick(event);" widgetVar="map"/>
          
         <p:dialog widgetVar="dlg" showEffect="fade">
@@ -60,9 +60,8 @@
                     
                     <p:selectOneMenu value="#{colocaMarcador.tema}" converter="TemaConverter">
              
-                        <f:selectItems itemLabel="Selecciona un tema" itemValue="#{null}"/>
                         <f:selectItems value="#{colocaMarcador.listaTemas}" itemValue="#{tema}" itemLabel="#{tema.nombre}"/>
-         
+                        
                     </p:selectOneMenu>
  
                     <h:outputLabel for="nombre" value="Nombre:"/>

@@ -49,7 +49,8 @@ public class VerTema implements Serializable{
         }
         for(Tema tema1 : temas){
             if(nombre.equals(tema1.getNombre())){
-                return tema1;
+                System.out.print(tema1);
+                return tema1;                
             }
         }
         return null;

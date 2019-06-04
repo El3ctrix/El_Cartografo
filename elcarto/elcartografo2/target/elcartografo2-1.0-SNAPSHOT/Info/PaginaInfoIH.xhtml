@@ -40,22 +40,26 @@ and open the template in the editor.
 			</ul>
 		</nav><!-- / nav -->
  
-	</header>
-    <p:gmap center="23.382390, -102.291477" zoom="5" type="roadmap" style="width:100%;height:700px" model="#{verMarcadores.simpleModel}">
-        
-        <p:ajax event="overlaySelect" listener="#{verMarcadores.onMarkerSelect(event)}" />
-        
-        <p:gmapInfoWindow id="infoWindow">
-        
-            <p:outputPanel style="text-align: center; display: block; margin: auto">
-           
-                <h:outputText value="#{verMarcadores.marker.title}"/>                
-                <h:outputText value="#{verMarcadores.marker.shadow}"/>
-                
-            </p:outputPanel>
-        
-        </p:gmapInfoWindow>
-    </p:gmap>
+	</header>   
     </h:body>
+        
     </f:view>
+    <h:form>
+        <p:gmap center="23.382390, -102.291477" zoom="5" type="roadmap" style="width:100%;height:700px" model="#{verMarcadores.simpleModel}">
+            
+            <p:ajax event="overlaySelect" listener="#{verMarcadores.onMarkerSelect}" />
+                
+            <p:gmapInfoWindow id="infoWindow">
+                
+                <p:outputPanel style="text-align: center; display: block; margin: auto">
+                    
+                    <h:outputText value="#{verMarcadores.marker.title}"/><br/>                
+                    <h:outputText value="#{verMarcadores.marker.data}"/><br/>
+                        
+                        
+                </p:outputPanel>
+                    
+            </p:gmapInfoWindow>
+        </p:gmap>
+    </h:form>
 </html>

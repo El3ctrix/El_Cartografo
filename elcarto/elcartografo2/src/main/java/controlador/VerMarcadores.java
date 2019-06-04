@@ -24,6 +24,8 @@ public class VerMarcadores implements Serializable{
     private MapModel simpleModel;
     
     private Marker marker;
+    private String data;
+    private String titulo;
     
     @PostConstruct
     public void init(){
@@ -49,7 +51,8 @@ public class VerMarcadores implements Serializable{
     
     public void onMarkerSelect(OverlaySelectEvent event) {
        marker =(Marker) event.getOverlay();
-       
+       data = (String) marker.getData();
+       titulo = (String) marker.getTitle();
     }
 
     public Marker getMarker() {
