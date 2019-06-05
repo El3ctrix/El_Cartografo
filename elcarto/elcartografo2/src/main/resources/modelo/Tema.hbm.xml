@@ -8,13 +8,20 @@
             <column name="nombre" />
             <generator class="assigned" />
         </id>
-        <property name="correo" type="string">
-            <column name="correo" not-null="true" />
+
+        <many-to-one name="usuario" class="modelo.Usuario" fetch="select">
+            <column name="usuario" length="30" not-null="true" />
+        </many-to-one>
+
+        <property name="color" type="string">
+            <column name="color" />
         </property>
+
         <set name="marcadors" table="marcador" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="tema" not-null="true" />
             </key>
+
             <one-to-many class="modelo.Marcador" />
         </set>
     </class>
