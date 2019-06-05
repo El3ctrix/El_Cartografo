@@ -14,7 +14,7 @@ _Que cosas necesitas para instalar el software y como instalarlas_
 Dar un ejemplo
 ```
 
-### Instalación 🔧
+### Como ejecutar . . . 🔧
 
 _Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
 
@@ -32,7 +32,7 @@ Mas ejemplos de lineas de comando para ejecutar los pasos de instalacion
 
 _(Ejemplo de linea de comando para una pequeña demostracion)_
 
-## Construido con 🛠️
+## Herramientas de Desarrollo 🛠️
 
 _A continuacion se muestran las herramientas que se utilizaron para llevar a cabo el desarrollo del proyecto:_
 
@@ -44,7 +44,7 @@ _A continuacion se muestran las herramientas que se utilizaron para llevar a cab
 * [NetBeans](https://netbeans.org/) - IDE
 * [GitHub](https://github.com/) - Controlador de Versiones
 
-## Autores ✒️
+## Equipo de Desarollo ✒️
 
 _Todos los implicados en la realizacion del proyecto se muestran a continuacion:_
 
