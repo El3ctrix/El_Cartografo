@@ -107,16 +107,16 @@ public class MarcadorDAO extends AbstractDAO<Marcador>{
     
     }
     
-    public List<Marcador> ObtenMarcadoresPorUsuario(String correo){
-        List<Marcador> m = null;
+    public Marcador ObtenMarcadoresPorUsuario(String correo, String titulo){
+        Marcador m = null;
         Session session = this.sessionFactory.openSession();
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            String hql = "from Marcador m where m.usuario.correo = :correo";
+            String hql = "from Marcador m where m.usuario.correo = :correo and m.nombre = :titulo";
             Query query = session.createQuery(hql);
             query.setParameter("correo", correo);
-            m = (List<Marcador>)query.list();
+            m = (Marcador)query.list();
             tx.commit();
             
         }catch(HibernateException e){
@@ -130,4 +130,7 @@ public class MarcadorDAO extends AbstractDAO<Marcador>{
         }
         return m;
     }
+    
+    
+    
 }

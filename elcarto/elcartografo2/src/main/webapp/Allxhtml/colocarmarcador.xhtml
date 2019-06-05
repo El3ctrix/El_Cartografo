@@ -55,14 +55,17 @@
         <p:dialog widgetVar="dlg" showEffect="fade">
             <h:form prependId="false">              
                 <p:panelGrid columns="2">
-                    <h:outputLabel for="tema" value="Tema:"/>
+                  <!--  <h:outputLabel value="Tema:"/>
                    
                     <p:selectOneMenu value="#{colocaMarcador.tema}" converter="TemaConverter">
              
-                        <f:selectItems value="#{colocaMarcador.listaTemas}" itemValue="#{tema}" itemLabel="#{tema.nombre}"/>
+                        <f:selectItems value="#{colocaMarcador.listaTemas}" />
                         
-                    </p:selectOneMenu>
- 
+                    </p:selectOneMenu>-->
+                    
+                    <h:outputLabel for="tema" value="Tema:"/>
+                    <p:inputText id="tema" value="#{colocaMarcador.cadenaTema}"/>
+                    
                     <h:outputLabel for="nombre" value="Nombre:"/>
                     <p:inputText id="nombre" value="#{colocaMarcador.nombre}"/>
                     
@@ -73,7 +76,8 @@
                     <p:inputText id="datos" value="#{colocaMarcador.datos}"/>
                     
                     <f:facet name="footer">
-                        <p:commandButton action="#{colocaMarcador.colocaMarcador(controladorSesion.usuario)}" value="Agregar" oncomplete="markerAddComplete()" />
+                        <p:commandButton action="#{colocaMarcador.colocaMarcador(controladorSesion.usuario)}" value="Agregar" 
+                                         oncomplete="markerAddComplete()" />
                          <p:commandButton value="Cancelar" onclick="return cancel()" />
                     </f:facet>
                 

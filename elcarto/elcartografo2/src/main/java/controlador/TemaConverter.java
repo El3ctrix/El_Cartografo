@@ -26,14 +26,14 @@ public class TemaConverter implements Converter{
     public Object getAsObject(FacesContext ctx, UIComponent uiComponent, String temaId){
         ValueExpression vex = ctx.getApplication().getExpressionFactory()
                 .createValueExpression(ctx.getELContext(), "#{verTema}", VerTema.class);
+        
         VerTema verTema = (VerTema)vex.getValue(ctx.getELContext());
+     
         return verTema.getTemaNombre(temaId);
     }
     
     @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object tema){
         return ((Tema) tema).getNombre().toString();
-    }
-
-    
+    }   
 }

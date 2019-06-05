@@ -39,10 +39,22 @@ public class ColocaMarcador implements Serializable{
     private String descripcion;
     private String datos;
     private List<Tema> listaTemas;        
+    private List<Marcador> marcadores;
     
     public List<Tema> getListaTemas(){
+        TemaDAO temaDao = new TemaDAO();
+        this.listaTemas = temaDao.findAll();
         return listaTemas;
     }
+
+    public void getMarcadores() {
+        MarcadorDAO marcadorDAO = new MarcadorDAO();
+        this.marcadores = marcadorDAO.findAll();
+    }
+
+    public void setMarcadores(List<Marcador> marcadores) {
+        this.marcadores = marcadores;
+    }    
     
     public int getIdMarcador() {
         return idMarcador;
@@ -55,7 +67,6 @@ public class ColocaMarcador implements Serializable{
     public String getNombre() {
         return nombre;
     }
-
     
     public void setCorreo(String correo) {
         this.correo = correo;
@@ -140,6 +151,9 @@ public class ColocaMarcador implements Serializable{
         Marcador m = new Marcador();
         TemaDAO temaDAO = new TemaDAO();
         MarcadorDAO mdao = new MarcadorDAO();
+                
+        getMarcadores();
+        
         setTema(temaDAO.find(this.getCadenaTema()));
         
         m.setTema(tema);

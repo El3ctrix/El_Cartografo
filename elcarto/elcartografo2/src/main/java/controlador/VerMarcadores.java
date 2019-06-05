@@ -41,6 +41,22 @@ public class VerMarcadores implements Serializable{
             }
         }
     }
+    
+    
+    public void otro(){
+        simpleModel = new DefaultMapModel();
+        MarcadorDAO mdb = new MarcadorDAO();
+        List<Marcador> marcadores = mdb.findAll();
+        if(marcadores != null && !marcadores.isEmpty()){
+            for(Marcador m :marcadores){
+                System.out.println("Marcador: " + m.getLatitud() + ", " + m.getLongitud()+ m.getDescripcion());
+                System.out.print(m.toString());
+                LatLng cord = new LatLng(m.getLatitud(),m.getLongitud());
+                simpleModel.addOverlay(new Marker(cord,m.getNombre(),m.getDescripcion()));                
+            }
+        }
+    }
+    
     /**
      *
      * @return simpleModel

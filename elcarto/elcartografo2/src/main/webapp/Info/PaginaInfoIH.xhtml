@@ -56,7 +56,7 @@ and open the template in the editor.
                     <h:outputText value="#{verMarcadores.marker.title}"/><br/>                
                     <h:outputText value="#{verMarcadores.marker.data}"/><br/>
                     
-                    <h:commandButton value="Eliminar" action="#{eliminaMarcador.eliminaMarcador()}" />
+                    <h:commandButton value="Eliminar" action="#{eliminaMarcador.eliminaMarcador(controladorSesion.usuario,verMarcadores.marker.title, verMarcadores)}"/>
                         
                 </p:outputPanel>
                     
