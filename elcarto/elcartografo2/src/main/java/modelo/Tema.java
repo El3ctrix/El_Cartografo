@@ -12,20 +12,23 @@ public class Tema  implements java.io.Serializable {
 
 
      private String nombre;
-     private String correo;
+     private Usuario usuario;
+     private String color;
      private Set marcadors = new HashSet(0);
 
     public Tema() {
     }
 
 	
-    public Tema(String nombre, String correo) {
+    public Tema(String nombre, Usuario usuario, String color) {
         this.nombre = nombre;
-        this.correo = correo;
+        this.usuario = usuario;
+        this.color = color;
     }
-    public Tema(String nombre, String correo, Set marcadors) {
+    public Tema(String nombre, Usuario usuario, String color, Set marcadors) {
        this.nombre = nombre;
-       this.correo = correo;
+       this.usuario = usuario;
+       this.color = color;
        this.marcadors = marcadors;
     }
    
@@ -36,12 +39,19 @@ public class Tema  implements java.io.Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public String getCorreo() {
-        return this.correo;
+    public Usuario getUsuario() {
+        return this.usuario;
     }
     
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    public String getColor() {
+        return this.color;
+    }
+    
+    public void setColor(String color) {
+        this.color = color;
     }
     public Set getMarcadors() {
         return this.marcadors;
@@ -50,11 +60,4 @@ public class Tema  implements java.io.Serializable {
     public void setMarcadors(Set marcadors) {
         this.marcadors = marcadors;
     }
-    
-    @Override
-    public String toString(){
-        return nombre;
-    }
 }
-
-
