@@ -16,6 +16,7 @@ modelo/Comentario.class
 controlador/FilterSessionAdministrador.class
 controlador/FilterSessionComentarista.class
 controlador/EliminaComentario.class
+controlador/Contrasenia.class
 modelo/Marcador.class
 controlador/BuscarPorCorreo.class
 modelo/HibernateUtil.class

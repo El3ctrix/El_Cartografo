@@ -40,7 +40,10 @@
                        
                     <br><p:password  id="contrasenia" value="#{registrarUsuario.contrasenia}" placeholder="Contraseña"  required="true" validatorMessage="Introduce contrasenia"/></br> 
                     <br><p:commandButton action="#{registrarUsuario.agregaUsuario()}" value="Registrarse" ajax="false"/></br> 
-                    
+                    <p:dialog header="Usuario Registrado" widgetVar="dlg1" showEffect="explode" hideEffect="bounce" minHeight="100">
+                        <h:outputText value="Se ha registrado correctamente."/>
+                        <h:commandButton type="submit" value="Regresar a la Pagina Principal" action="/PaginaPrincipalIH?faces-redirect=true"><f:ajax/></h:commandButton>       
+                    </p:dialog>
                     </h:form>
             </main>      
                 
