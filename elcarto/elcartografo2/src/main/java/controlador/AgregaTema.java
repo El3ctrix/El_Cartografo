@@ -18,6 +18,8 @@ public class AgregaTema {
     private String nombre;
   
     private Usuario usuario;
+    
+    private String color;
 
     public Usuario getUsuario() {
         return usuario;
@@ -35,15 +37,23 @@ public class AgregaTema {
         this.nombre = nombre;
     }
     
+    public String getColor() {
+       return this.color;
+    }
     
-    public void agregraTema(){
-        Tema u = new Tema();
+    public void setColor(String color) {
+       this.color = color;
+    }
+    
+    public void agregaTema(Usuario u){
+        Tema t = new Tema();
 
-        TemaDAO udao = new TemaDAO();
-        u.setNombre(nombre);
-        setUsuario(usuario);
-        if(udao.find(nombre) == null){
-            udao.save(u);
+        TemaDAO tdao = new TemaDAO();
+        t.setNombre(nombre);
+        t.setUsuario(u);
+        t.setColor(color);
+        if(tdao.find(nombre) == null){
+            tdao.save(t);
         }
     }
 }
