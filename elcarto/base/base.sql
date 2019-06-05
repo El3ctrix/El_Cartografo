@@ -13,7 +13,7 @@ CREATE TABLE usuario (
 
 CREATE TABLE tema (
     nombre character varying(255) NOT NULL primary key,
-    correo character varying(255) NOT NULL
+    usuario character varying(255) NOT NULL,   color character varying(255) NOT NULL
 );
 
 CREATE TABLE marcador (
