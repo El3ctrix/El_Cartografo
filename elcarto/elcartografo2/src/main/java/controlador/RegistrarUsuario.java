@@ -9,6 +9,7 @@ import modelo.Usuario;
 import modelo.UsuarioDAO;
 import javax.faces.bean.ManagedBean;
 import javax.mail.MessagingException;
+import org.primefaces.PrimeFaces;
 /**
  *
  * @author francisco
@@ -77,16 +78,19 @@ public class RegistrarUsuario {
         return nuevaCadena;
     }
     
-    public void agregaUsuario()throws MessagingException{
+    public void agregaUsuario()throws Exception{
+        PrimeFaces context = PrimeFaces.current();
         Usuario u = new Usuario();
         u.setIdusuario(conc(nombre,correo,apaterno));
         u.setNombre(nombre);
         u.setCorreo(correo);
         u.setApaterno(apaterno);
         u.setContrasenia(contrasenia);
+        u.setCif(Contrasenia.encripta(contrasenia));
         u.setRol("Comentarista");    
-        EmailSender ems = new EmailSender("Comentarista");
-        ems.enviaCorreo(correo);
+        //EmailSender ems = new EmailSender("Comentarista");
+        //ems.enviaCorreo(correo);
+        context.executeScript("PF('dlg1').show();");
         UsuarioDAO udb = new UsuarioDAO();
         
         udb.save(u);

@@ -19,14 +19,14 @@
               </header>
             <h:form id="login">
 
-                        <p:inputText class="texto" id="email" value="#{controladorSesion.correo}" placeholder="Correo" required="true" requiredMessage="Por favor ingresa tu correo" validatorMessage="Debe ser un correo valido">
+                        <p:inputText class="texto" id="email" value="#{controladorSesion.correo}" style="width: 250px; height:30px" placeholder="Correo" required="true" requiredMessage="Por favor ingresa tu correo" validatorMessage="Debe ser un correo valido">
                             <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
                             <p:keyFilter regEx="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
                         </p:inputText> <br/>
                         <p:message for="email"/>
-                        <p:password class="texto" id="password" value="#{controladorSesion.contrasenia}" placeholder="Contraseña"  required="true" requiredMessage="Por favor ingresa tu contrasenia"/> <br/>
+                        <p:password class="texto" id="password" value="#{controladorSesion.contrasenia}" style="width: 250px; height:30px" placeholder="Contraseña"  required="true" requiredMessage="Por favor ingresa tu contrasenia"/> <br/>
                         <p:message for="password"/>
-                        <p:commandButton class="texto" action="#{controladorSesion.login()}" value="login" update="login" />
+                        <p:commandButton class="texto" action="#{controladorSesion.login()}" value="Iniciar Sesion" style="width: 250px; height:50px; text-align: center" update="login" />
                         
                     </h:form>
             

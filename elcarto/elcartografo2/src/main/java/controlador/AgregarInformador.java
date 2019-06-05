@@ -137,7 +137,7 @@ public class AgregarInformador {
         return nuevaCadena;
     }
     
-    public void agregarInformador()throws MessagingException{
+    public void agregarInformador()throws Exception{
         PrimeFaces context = PrimeFaces.current();
         separaApellido(apellido);
         Usuario u = new Usuario();
@@ -146,10 +146,11 @@ public class AgregarInformador {
         u.setCorreo(correo);
         u.setApaterno(apaterno);
         u.setAmaterno(amaterno);
-        u.setContrasenia(generaContrasenia(10));  
+        u.setContrasenia(generaContrasenia(10)); 
+        u.setCif(Contrasenia.encripta(u.getContrasenia()));
         u.setRol("Informador");
-        EmailSender ems = new EmailSender("Informador",u.getContrasenia());
-        ems.enviaCorreo(correo);
+        //EmailSender ems = new EmailSender("Informador",u.getContrasenia());
+        //ems.enviaCorreo(correo);
         UsuarioDAO udb = new UsuarioDAO();
         udb.save(u);
         context.executeScript("PF('dlg1').show();");
