@@ -11,6 +11,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import modelo.TemaDAO;
 import modelo.Tema;
 
 /**
@@ -26,9 +27,10 @@ public class TemaConverter implements Converter{
         ValueExpression vex = ctx.getApplication().getExpressionFactory()
                 .createValueExpression(ctx.getELContext(), "#{verTema}", VerTema.class);
         VerTema verTema = (VerTema)vex.getValue(ctx.getELContext());
-        return verTema.getTemaId(temaId);
+        return verTema.getTemaNombre(temaId);
     }
     
+    @Override
     public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object tema){
         return ((Tema) tema).getNombre().toString();
     }

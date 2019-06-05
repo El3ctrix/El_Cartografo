@@ -8,6 +8,7 @@
  */
 
 package controlador;
+import java.io.Serializable;
 import modelo.Marcador;
 import modelo.MarcadorDAO;
 import javax.faces.bean.ManagedBean;
@@ -17,7 +18,7 @@ import javax.faces.bean.ManagedBean;
  *@author francisco
  */
 @ManagedBean
-public class EliminaMarcador{
+public class EliminaMarcador implements Serializable{
     private int idMarcador;    
 
     public int getIdMarcador(){

@@ -41,8 +41,6 @@ public class ColocaMarcador implements Serializable{
     private List<Tema> listaTemas;        
     
     public List<Tema> getListaTemas(){
-        TemaDAO temaDao = new TemaDAO();
-        this.listaTemas = temaDao.findAll();
         return listaTemas;
     }
     

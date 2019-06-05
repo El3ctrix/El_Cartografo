@@ -10,6 +10,7 @@ import java.util.List;
 import modelo.TemaDAO;
 import modelo.Tema;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 /**
  *
@@ -19,8 +20,11 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class VerTema implements Serializable{
     
+    @ManagedProperty(value = "#{tema}")
     private Tema tema;
+    @ManagedProperty(value = "#{temas}")
     private List<Tema> temas;
+    @ManagedProperty(value = "#{temaDAO}")
     private TemaDAO temaDao;
     
     public void init(){
@@ -43,15 +47,11 @@ public class VerTema implements Serializable{
         this.temas = temas;
     }
     
-    public Tema getTemaId(String nombre){
-        if(nombre == null){
-            throw new IllegalArgumentException("Ingresa el nombre del tema");            
-        }
-        for(Tema tema1 : temas){
-            if(nombre.equals(tema1.getNombre())){
-                System.out.print(tema1);
-                return tema1;                
-            }
+    public Tema getTemaNombre(String nombre){
+        TemaDAO temaDAO = new TemaDAO();
+        for(Tema t : temas){
+            t = temaDAO.encuentraNombre(nombre);
+            return t;
         }
         return null;
     }
