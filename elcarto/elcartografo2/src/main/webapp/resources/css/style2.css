@@ -4,9 +4,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 4/06/2019, 08:43:14 PM
+    Created on : 4/06/2019, 11:24:13 PM
     Author     : el3ctrix
 */
+
 *{
     padding: 0px;
     margin: 0px;
@@ -57,7 +58,7 @@ img.img_logo{
 #main-header {
 	background: #333;
 	color: white;
-	height: 157px;
+	height: 80px;
         top: 0;
 }	
 #main-header a {
@@ -170,5 +171,3 @@ img.img_logo{
     width: 250px;
     height: 50px;
 }
-
-
