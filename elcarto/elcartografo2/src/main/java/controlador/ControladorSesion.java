@@ -127,13 +127,13 @@ public class ControladorSesion {
         String cadena = "";
         switch (usuario.getRol()) {
             case "Comentarista":
-                cadena = "/Comen/PaginaComenIH?faces-redirect=true";
+                cadena = "../Comen/PaginaComenIH.xhtml";
                 break;
             case "Administrador":
-                cadena = "/Admin/PaginaAdminIH?faces-redirect=true";
+                cadena = "../Admin/PaginaAdminIH.xhtml";
                 break;
             case "Informador":
-                cadena = "/Info/PaginaInfoIH?faces-redirect=true";
+                cadena = "../Info/PaginaInfoIH.xhtml";
                 break;
         }
         return cadena;
