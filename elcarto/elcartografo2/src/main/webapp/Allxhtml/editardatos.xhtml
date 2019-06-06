@@ -16,6 +16,7 @@
 		
             <a id="logo-header" href="#{controladorSesion.redirect()}">
 			<span class="site-name">El Cartografo</span>
+                        <span class="site-name">Editar Datos</span>
 		</a> <!-- / #logo-header -->
  
 		<!-- En esta parte tengo que editar a donde redirecciona dependiendo del usuario -->
@@ -24,17 +25,14 @@
  
     </h:head>
  <h:body>
-          <header>
-            <h1>
-             Editar tus datos
-            </h1>
-              </header>        
+                 
                         <h:form>
                             <p:inputText id="nombre" value="#{editaD.nombre}" style="width:25%" placeholder="Nombre(s):#{controladorSesion.usrNombre}"/> <br/>
                             <p:inputText id="apellidosP" value="#{editaD.apaterno}" style="width:25%" placeholder="Apellido Paterno:#{controladorSesion.usrAPaterno}"/> <br/>
                             <p:inputText id="apellidosM" value="#{editaD.amaterno}" style="width:25%" placeholder="Apellido Materno:#{controladorSesion.usrAMaterno}"/> <br/>
                             <p:inputText id="correo" value="#{editaD.correo}" style="width:25%" placeholder="Correo electrónico: #{controladorSesion.usrCorreo}"/> <br/>
-                            <p:inputText id="contrasenia" value="#{editaD.contrasenia}" style="width:25%" placeholder="Contraseña actual: #{controladorSesion.usrContrasena}"/> <br/>                           
+                            <p:inputText id="contrasenia" value="#{editaD.contrasenia}" style="width:25%" placeholder="Contraseña actual: #{controladorSesion.usrContrasena}"/> <br/>
+                           
                             <p:commandButton action="#{editaD.editaDatos(tabla.getListUsrs(4))}" value="Aceptar" ajax="false" />
              
                         </h:form>
