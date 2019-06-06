@@ -34,6 +34,7 @@ and open the template in the editor.
 				<li><a href="../Allxhtml/AgregarInformadorIH.xhtml">Agregar Informador</a></li>
 				<li><a href="../Allxhtml/EliminarInformadorIH.xhtml">Eliminar Informador</a></li>
                                 <li><a href="../Allxhtml/colocarmarcador.xhtml">Colocar Marcador</a></li>
+                                <li><a href="../Allxhtml/eliminamarcador.xhtml">Eliminar Marcadores</a></li>
                                 <li><a href="../Allxhtml/editardatos.xhtml">Editar Datos</a></li>
                                 <li><a href="../Allxhtml/eliminacuenta.xhtml">Eliminar Cuenta</a></li>
                                 <li><a href="../Allxhtml/eliminarcomentarista.xhtml">Eliminar Comentarista</a></li>
@@ -54,8 +55,9 @@ and open the template in the editor.
             <p:gmapInfoWindow id="infoWindow">
                 
                 <p:outputPanel style="text-align: center; display: block; margin: auto">
-                    
+                    <h:outputText value="Titulo:"/>
                     <h:outputText value="#{verMarcadores.marker.title}"/><br/>                
+                    <h:outputText value="Descripcion:"/>
                     <h:outputText value="#{verMarcadores.marker.data}"/><br/>
                     
                     <h:commandButton value="Eliminar" 

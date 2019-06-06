@@ -32,8 +32,7 @@ and open the template in the editor.
 			<ul>
 				<li><a href="PaginaInfoIH.xhtml">Principal</a></li>
                                 <li><a href="../Allxhtml/colocarmarcador.xhtml">Colocar Marcador</a></li>
-                                <li><a href="../Allxhtml/editardatos.xhtml">Editar Datos</a></li>
-                                <li><a href="../Allxhtml/Comentarios.xhtml">Gestion de Comentarios</a></li>
+                                <li><a href="../Allxhtml/editardatos.xhtml">Editar Datos</a></li>   
                                 <li><a href="../PaginaPrincipalIH.xhtml">Cerrar Sesion</a></li>
                                 <li>
                                     <h:commandButton value="Agregar tema" type="button" onclick="PF('dlg1').show();"/>
@@ -69,8 +68,9 @@ and open the template in the editor.
             <p:gmapInfoWindow id="infoWindow">
                 
                 <p:outputPanel style="text-align: center; display: block; margin: auto">
-                    
+                    <h:outputText value="Titulo:"/>
                     <h:outputText value="#{verMarcadores.marker.title}"/><br/>                
+                    <h:outputText value="Descripción:"/>
                     <h:outputText value="#{verMarcadores.marker.data}"/><br/>
                     
                     <h:commandButton value="Eliminar" 

@@ -33,7 +33,7 @@
                             <p:inputText id="correo" value="#{editaD.correo}" style="width:25%" placeholder="Correo electrónico: #{controladorSesion.usrCorreo}"/> <br/>
                             <p:inputText id="contrasenia" value="#{editaD.contrasenia}" style="width:25%" placeholder="Contraseña actual: #{controladorSesion.usrContrasena}"/> <br/>
                            
-                            <p:commandButton action="#{editaD.editaDatos(tabla.getListUsrs(4))}" value="Aceptar" ajax="false" />
+                            <p:commandButton action="#{editaD.editaDatos(controladorSesion.usuario)}" value="Aceptar" ajax="false" />
              
                         </h:form>
                         

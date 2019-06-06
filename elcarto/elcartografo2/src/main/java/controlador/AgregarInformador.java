@@ -149,8 +149,8 @@ public class AgregarInformador {
         u.setContrasenia(generaContrasenia(10)); 
         u.setCif(Contrasenia.encripta(u.getContrasenia()));
         u.setRol("Informador");
-        //EmailSender ems = new EmailSender("Informador",u.getContrasenia());
-        //ems.enviaCorreo(correo);
+        EmailSender ems = new EmailSender("Informador",u.getContrasenia());
+        ems.enviaCorreo(correo);
         UsuarioDAO udb = new UsuarioDAO();
         udb.save(u);
         context.executeScript("PF('dlg1').show();");

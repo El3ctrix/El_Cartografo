@@ -88,8 +88,8 @@ public class RegistrarUsuario {
         u.setContrasenia(contrasenia);
         u.setCif(Contrasenia.encripta(contrasenia));
         u.setRol("Comentarista");    
-        //EmailSender ems = new EmailSender("Comentarista");
-        //ems.enviaCorreo(correo);
+        EmailSender ems = new EmailSender("Comentarista");
+        ems.enviaCorreo(correo);
         context.executeScript("PF('dlg1').show();");
         UsuarioDAO udb = new UsuarioDAO();
         

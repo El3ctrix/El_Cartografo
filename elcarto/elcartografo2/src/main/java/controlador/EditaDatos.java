@@ -75,26 +75,23 @@ public class EditaDatos implements Serializable{
      public Usuario obtenUsuario(List<Usuario> usuarios){
         Usuario u1 = null;
         for(Usuario u:usuarios){
-            if(u.getCorreo().equals(this.correo))
+            if(u.getIdusuario().equals(this.nombre))
                 u1 = u;
         }
         return u1;
     }
      
-    public void editaDatos(List<Usuario> usuarios){
+    public void editaDatos(Usuario usuario){
         UsuarioDAO udb = new UsuarioDAO();
-        Usuario u = obtenUsuario(usuarios);
         PrimeFaces context = PrimeFaces.current();
-        if(u!=null){
-            u.setNombre(nombre);
-            u.setApaterno(apaterno);
-            u.setAmaterno(amaterno);
-            u.setCorreo(correo);
-            u.setContrasenia(contrasenia);    
-            udb.update(u);
-            context.executeScript("PF('dlg1').show();");
-        }else{
-            context.executeScript("PF('dlg2').show();");
-        }
+        usuario.setNombre(nombre);
+        usuario.setApaterno(apaterno);
+        usuario.setAmaterno(amaterno);
+        usuario.setCorreo(correo);
+        usuario.setContrasenia(contrasenia);
+        Usuario u = usuario;
+        udb.update(u);
+        context.executeScript("PF('dlg1').show();");
+        
     }
 }

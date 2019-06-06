@@ -10,24 +10,39 @@
     <f:view>
         <h:head>
             <title>Administrador</title>
-            <h:outputStylesheet name="../resources/css/estilos.css"/>
+            <link rel="stylesheet" href="../resources/css/style.css">
+            </link>
              
         </h:head>
         <h:body>
-            <header>
-                <h1>El Cartografo</h1>
-                
+            
+                <header id="main-header">
+		<a id="logo-header" href="../resources/media/labteam.png">
+			<span class="site-name">El cartografo</span>
+                        <span class="site-name">#{controladorSesion.nombrePagina()}</span>
+                      
+		</a> 
+                 <nav>
+                     <ul>
+                     <li><a href="#{controladorSesion.redirect1()}">Regresar</a></li>
+                     </ul>
+                 </nav>
             </header>
+                
+            
                  
             <main>
                 
                 <h:form id="funcionEliminarMarcador">
                     
-                    <br><p:inputText  id="id" value="#{eliminaMarcador.idMarcador}" required="true" placeholder="idMarcador" validatorMessage="Debe ser un marcador valido"> 
-                        <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-                        <p:keyFilter regEx="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+                    <br><p:inputText  id="id" value="#{eliminaMarcador.nombreTema}" required="true" placeholder="Nombre Tema"> 
+                        
                         </p:inputText></br>  
-                    <br><p:commandButton action="#{eliminarMarcador.eliminaMarcador()}" value="Eliminar Marcador" ajax="false" /></br> 
+                    <br><p:commandButton action="#{eliminaMarcador.eliminarPorTema()}" value="Eliminar Marcadores" ajax="false" /></br> 
+                    <p:dialog header="Marcadores Eliminados" widgetVar="dlg1" showEffect="explode" hideEffect="bounce" minHeight="100">
+                        <h:outputText value="Los marcadores con los temas especificados han sido eliminados."/>
+                        <h:commandButton type="submit" value="Regresar a la Pagina Principal" action="/Admin/PaginaAdminIH?faces-redirect=true"><f:ajax/></h:commandButton>       
+                    </p:dialog>
                 </h:form>
                 
                 

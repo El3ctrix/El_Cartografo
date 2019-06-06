@@ -127,6 +127,22 @@ public class ControladorSesion implements Serializable{
         String cadena = "";
         switch (usuario.getRol()) {
             case "Comentarista":
+                cadena = "/Comen/PaginaComenIH?faces-redirect=true";
+                break;
+            case "Administrador":
+                cadena = "/Admin/PaginaAdminIH?faces-redirect=true";
+                break;
+            case "Informador":
+                cadena = "/Info/PaginaInfoIH?faces-redirect=true";
+                break;
+        }
+        return cadena;
+    }
+    
+    public String redirect1(){
+        String cadena = "";
+        switch (usuario.getRol()) {
+            case "Comentarista":
                 cadena = "../Comen/PaginaComenIH.xhtml";
                 break;
             case "Administrador":

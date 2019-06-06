@@ -15,6 +15,7 @@ import modelo.MarcadorDAO;
 import javax.faces.bean.ManagedBean;
 import modelo.Usuario;
 import controlador.Mensajes;
+import org.primefaces.PrimeFaces;
 import org.primefaces.model.map.Marker;
 
 /**
@@ -27,6 +28,7 @@ public class EliminaMarcador implements Serializable{
     private MarcadorDAO marcadorDAO;
     private List<Marcador> marcadores;
     private Marker marcador;
+    private String nombreTema;
     
     public MarcadorDAO getMarcadorDAO() {
         return marcadorDAO;
@@ -52,6 +54,15 @@ public class EliminaMarcador implements Serializable{
 	this.idMarcador = idMarcador;
     }   
 
+    public String getNombreTema() {
+        return nombreTema;
+    }
+
+    public void setNombreTema(String nombreTema) {
+        this.nombreTema = nombreTema;
+    }
+    
+    
     public void eliminaMarcador(Usuario usuario, String titulo, VerMarcadores ver){
         //Marcador m = marcadorDAO.ObtenMarcadoresPorUsuario(usuario.getCorreo(),titulo);
         marcadorDAO = new MarcadorDAO();
@@ -68,5 +79,17 @@ public class EliminaMarcador implements Serializable{
         }
         
         ver.otro();
+    }
+    
+    public void eliminarPorTema(){
+        MarcadorDAO mdao = new MarcadorDAO();
+        List<Marcador> marcadores = mdao.findAll();
+        PrimeFaces context = PrimeFaces.current();
+        for(Marcador m: marcadores){
+            if(m.getTema().getNombre().equals(nombreTema)){
+                mdao.delete(m);
+                context.executeScript("PF('dlg1').show();");
+            }
+        }
     }
 }
