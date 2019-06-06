@@ -139,6 +139,22 @@ public class ControladorSesion implements Serializable{
         return cadena;
     }
     
+    public String nombrePagina(){
+        String cadena = "";
+        switch (usuario.getRol()) {
+            case "Comentarista":
+                cadena = "Comentarista";
+                break;
+            case "Administrador":
+                cadena = "Administrador";
+                break;
+            case "Informador":
+                cadena = "Informador";
+                break;
+        }
+        return cadena;
+    }
+    
      public class UserLogged implements Serializable{
         private String nombre;
         private String correo;

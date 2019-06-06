@@ -20,11 +20,13 @@
              <header id="main-header">
 		<a id="logo-header" href="../resources/media/labteam.png">
 			<span class="site-name">El cartografo</span>
-                        <span class="site-name">Informador</span>
+                        <span class="site-name">#{controladorSesion.nombrePagina()}</span>
                       
 		</a> 
                  <nav>
-                     <li><a href="PaginaInfoIH.xhtml">Regresar</a></li>
+                     <ul>
+                     <li><a href="#{controladorSesion.redirect()}">Regresar</a></li>
+                     </ul>
                  </nav>
             </header>
             

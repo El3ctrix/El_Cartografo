@@ -44,8 +44,8 @@ Contributor(s):
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/elcartografo2</property>
-    <property name="hibernate.connection.username">postgres</property>
-    <property name="hibernate.connection.password">StrongPassword</property>
+    <property name="hibernate.connection.username">erick1</property>
+    <property name="hibernate.connection.password">12345</property>
     <mapping resource="modelo/Usuario.hbm.xml"/>
     <mapping resource="modelo/Comentario.hbm.xml"/>
     <mapping resource="modelo/Marcador.hbm.xml"/>

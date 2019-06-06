@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package controlador;
+
+import java.util.List;
 import modelo.Comentario;
 import modelo.ComentarioDAO;
 import javax.faces.bean.ManagedBean;
@@ -24,6 +26,7 @@ public class AgregaComentario {
     private Usuario usuario;
     private String comentario;
     private int calificacion;
+    private List<Comentario> comentarios;
 
     public int getIdComentario() {
         return idComentario;
@@ -70,24 +73,35 @@ public class AgregaComentario {
     public void setCalificacion(int calificacion) {
         this.calificacion = calificacion;
     }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
+    
     
     public void agregaComentario(){
-        Comentario comentar = new Comentario();
-        ComentarioDAO daoComentario = new ComentarioDAO();
-        Marcador marcador = new Marcador();
-        MarcadorDAO daoMarcador = new MarcadorDAO();
-        marcador = daoMarcador.find(idMarcador);
-        Usuario usuario = new Usuario();
-        UsuarioDAO daoUsuario = new UsuarioDAO();
-        ControladorSesion.UserLogged us= (ControladorSesion.UserLogged) 
-                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("Comentarista");
-        usuario = daoUsuario.buscaPorCorreo(us.getCorreo());
-        comentar.setMarcador(marcador);
-        comentar.setUsuario(usuario);
-        comentar.setComentario(comentario);
-        comentar.setCalificacion(calificacion);
-        daoComentario.save(comentar);
-        
+     
+    }
+    
+    public List<Comentario> listarMarcadores(String titulo){
+        comentarios = null;
+        ComentarioDAO comen = new ComentarioDAO();
+        MarcadorDAO mardao = new MarcadorDAO();
+        List<Marcador> marcadores = mardao.findAll();
+        for(Marcador m : marcadores){
+            if(m.getNombre().equals(titulo)){                
+                comentarios = comen.findAll(m.getIdMarcador());
+            }else{
+                Mensajes.error("Sólo puedes eliminar marcadores tuyos");
+            } 
+        }
+        for(Comentario com : comentarios)
+            System.out.println(com.getComentario());
+        return comentarios;
     }
     
 }
