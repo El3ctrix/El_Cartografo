@@ -10,8 +10,25 @@
     <f:view>
         <h:head>
           <title>Coloca Marcador</title>
+          
+        <link rel="stylesheet" href="../resources/css/style.css">
+            </link>
           <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhdQCqsXvF4UYs_I4lYbPEzWSsqujPSMg" ></script>
+          
         </h:head>
+        <h:body>
+             <header id="main-header">
+		<a id="logo-header" href="../resources/media/labteam.png">
+			<span class="site-name">El cartografo</span>
+                        <span class="site-name">Informador</span>
+                      
+		</a> 
+                 <nav>
+                     <li><a href="PaginaInfoIH.xhtml">Regresar</a></li>
+                 </nav>
+            </header>
+            
+        </h:body>
         <script type="text/javascript">
             var currentMarker = null;
              
@@ -55,13 +72,6 @@
         <p:dialog widgetVar="dlg" showEffect="fade">
             <h:form prependId="false">              
                 <p:panelGrid columns="2">
-                  <!--  <h:outputLabel value="Tema:"/>
-                   
-                    <p:selectOneMenu value="#{colocaMarcador.tema}" converter="TemaConverter">
-             
-                        <f:selectItems value="#{colocaMarcador.listaTemas}" />
-                        
-                    </p:selectOneMenu>-->
                     
                     <h:outputLabel for="tema" value="Tema:"/>
                     <p:inputText id="tema" value="#{colocaMarcador.cadenaTema}"/>
