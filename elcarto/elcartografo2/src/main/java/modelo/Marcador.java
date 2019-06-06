@@ -60,6 +60,11 @@ public class Marcador  implements java.io.Serializable {
        this.datos = datos;
     }
    
+    @Override
+    public String toString(){
+        return nombre + descripcion + datos;
+    }
+    
     public int getIdMarcador() {
         return this.idMarcador;
     }
@@ -130,6 +135,4 @@ public class Marcador  implements java.io.Serializable {
     public void setComentarios(Set comentarios) {
         this.comentarios = comentarios;
     }
-}
-
-
+}        

@@ -89,4 +89,28 @@ public class TemaDAO extends AbstractDAO<Tema>{
         }
         return marca;
     }
+    
+    public Tema encuentraNombre(String nombre){
+        Tema tema = null;
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "from Tema t where t.nombre = :nombre";
+            Query query = session.createQuery(hql);
+            query.setParameter("nombre", nombre);
+            tema = (Tema)query.uniqueResult();
+            tx.commit();
+            
+        }catch(HibernateException e){
+            if(tx!=null){
+                tx.rollback();
+            }
+            e.printStackTrace();
+
+        }finally{
+            session.close();
+        }
+        return tema;
+    }
 }

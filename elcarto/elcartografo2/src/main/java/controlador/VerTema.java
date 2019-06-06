@@ -5,23 +5,30 @@
  */
 package controlador;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import modelo.TemaDAO;
 import modelo.Tema;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 /**
  *
  * @author alexrl
  */
 @ManagedBean
-public class VerTema {
+@SessionScoped
+public class VerTema implements Serializable{
     
     private Tema tema;
     private List<Tema> temas;
-    private TemaDAO temaDao;
+    private TemaDAO temaDAO1;
     
+    @PostConstruct
     public void init(){
-        temas = temaDao.findAll();        
+        temaDAO1 = new TemaDAO();
+        temas = temaDAO1.findAll();        
     }
 
     public Tema getTema() {
@@ -40,4 +47,14 @@ public class VerTema {
         this.temas = temas;
     }
     
+    public Tema getTemaNombre(String nombre){
+        temaDAO1 = new TemaDAO();
+        temas = temaDAO1.findAll();
+        for(Tema t : temas){
+            if(nombre.equals(t.getNombre())){
+                return t;
+            }
+        }
+        return null;
+    }
 }

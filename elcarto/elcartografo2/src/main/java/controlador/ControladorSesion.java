@@ -18,7 +18,7 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean
 @SessionScoped
-public class ControladorSesion {
+public class ControladorSesion implements Serializable{
 
     private String correo;
     private String contrasenia;

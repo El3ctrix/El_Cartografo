@@ -10,40 +10,94 @@
     <f:view>
         <h:head>
           <title>Coloca Marcador</title>
+          
+        <link rel="stylesheet" href="../resources/css/style.css">
+            </link>
           <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhdQCqsXvF4UYs_I4lYbPEzWSsqujPSMg" ></script>
+          
         </h:head>
- <h:body>
-          <header>
-            <h1>
-             Añade un marcador
-            </h1>
-              </header>        
-     <h:form prependId="false">              
-         <p:inputText id="nombre" value="#{colocaMarcador.nombre}" placeholder="Nombre"/> <br/>
-         <p:inputText id="Tema" value="#{colocaMarcador.cadenaTema}" placeholder="Tema"/> <br/>
-         <p:selectOneMenu value="#{colocaMarcador.cadenaTema}">
+        <h:body>
+             <header id="main-header">
+		<a id="logo-header" href="../resources/media/labteam.png">
+			<span class="site-name">El cartografo</span>
+                        <span class="site-name">Informador</span>
+                      
+		</a> 
+                 <nav>
+                     <li><a href="PaginaInfoIH.xhtml">Regresar</a></li>
+                 </nav>
+            </header>
+            
+        </h:body>
+        <script type="text/javascript">
+            var currentMarker = null;
              
-             <f:selectItem itemLabel="Selecciona un tema" itemValue="#{null}"/>
-             <f:selectItem value="#{colocaMarcador.listaTemas}"/>
-         </p:selectOneMenu>
-         <p:inputText id="latitud" value="#{colocaMarcador.latitud}" placeholder="Latitud"/> <br/>
-         <p:inputText id="longitud" value="#{colocaMarcador.longitud}" placeholder="Longitud"/> <br/>
-         <p:inputText id="descripcion" value="#{colocaMarcador.descripcion}" placeholder="Descripcion"/> <br/>  
-         <p:inputText id="datos" value="#{colocaMarcador.datos}" placeholder="Datos"/> <br/>
-         <p:commandButton action="#{colocaMarcador.colocaMarcador(controladorSesion.usuario)}" value="Aceptar" ajax="false" />
-                                
-         <p:growl id="growl" showDetail="true" />
-                                  
-                 <p:gmap mapTypeControl="false" center="17.0669, -96.7203" zoom="5" type="roadmap" 
-                                  
-             style="width:100%;height:700px" model="#{colocaMarcador.draggableModel}" >	
-                                          
-             <p:ajax event="markerDrag" listener="#{colocaMarcador.onMarkerDrag}" update="growl"/>
-                                   
-         </p:gmap>
-     </h:form>          
+            function handlePointClick(event) {
+                if(currentMarker === null) {
+                    document.getElementById('lat').value = event.latLng.lat();
+                    document.getElementById('lng').value = event.latLng.lng();
+ 
+                    currentMarker = new google.maps.Marker({
+                        position:new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
+                    });
+     
+                    PF('map').addOverlay(currentMarker);
+ 
+                    PF('dlg').show();
+                }   
+            }
+ 
+            function markerAddComplete() {
+                var title = document.getElementById('title');
+                currentMarker.setTitle(title.value);
+                title.value = "";
+ 
+                currentMarker = null;
+                PF('dlg').hide();
+            }
+ 
+            function cancel() {
+                PF('dlg').hide();
+                currentMarker.setMap(null);
+                currentMarker = null;
+ 
+                return false;
+            }
+        </script>
    
- </h:body>	    
+        <p:growl id="messages" showDetail="detail"/>
+        <p:gmap id="gmap" center="23.382390, -102.291477" zoom="5" type="roadmap" style="width:100%;height:700px"
+                model="#{colocaMarcador.draggableModel}" onPointClick="handlePointClick(event);" widgetVar="map"/>
+         
+        <p:dialog widgetVar="dlg" showEffect="fade">
+            <h:form prependId="false">              
+                <p:panelGrid columns="2">
+                    
+                    <h:outputLabel for="tema" value="Tema:"/>
+                    <p:inputText id="tema" value="#{colocaMarcador.cadenaTema}"/>
+                    
+                    <h:outputLabel for="nombre" value="Nombre:"/>
+                    <p:inputText id="nombre" value="#{colocaMarcador.nombre}"/>
+                    
+                    <h:outputLabel for="descripcion" value="Descripicion:"/>
+                    <p:inputText id="descripcion" value="#{colocaMarcador.descripcion}"/>
+                    
+                    <h:outputLabel for="datos" value="Datos:"/>
+                    <p:inputText id="datos" value="#{colocaMarcador.datos}"/>
+                    
+                    <f:facet name="footer">
+                        <p:commandButton action="#{colocaMarcador.colocaMarcador(controladorSesion.usuario)}" value="Agregar" 
+                                         oncomplete="markerAddComplete()" />
+                         <p:commandButton value="Cancelar" onclick="return cancel()" />
+                    </f:facet>
+                
+                </p:panelGrid>
+                
+                <h:inputHidden id="lat"  value="#{colocaMarcador.latitud}"/>
+                <h:inputHidden id="lng"  value="#{colocaMarcador.longitud}"/>
+            </h:form>
+        </p:dialog>    
+          
+      
     </f:view>
 </html>
-
