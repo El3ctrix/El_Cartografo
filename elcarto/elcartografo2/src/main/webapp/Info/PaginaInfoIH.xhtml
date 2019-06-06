@@ -35,7 +35,24 @@ and open the template in the editor.
                                 <li><a href="../Allxhtml/editardatos.xhtml">Editar Datos</a></li>
                                 <li><a href="../Allxhtml/Comentarios.xhtml">Gestion de Comentarios</a></li>
                                 <li><a href="../PaginaPrincipalIH.xhtml">Cerrar Sesion</a></li>
-                                
+                                <li>
+                                    <h:commandButton value="Agregar tema" type="button" onclick="PF('dlg1').show();"/>
+                                    <p:dialog header="Agregar Tema" widgetVar="dlg1" minHeight="40">
+                                        
+                                        <h:form>
+                                            <p:panelGrid class="2">
+                                                
+                                                <h:outputLabel for="nombre" value="Nombre del Tema:"/>
+                                                <p:inputText id="nombreTema" value="#{agregaTema.nombre}"/>
+                                                
+                                                <h:commandButton value="Aceptar" action="#{agregaTema.agregraTema(controladorSesion.usuario)}" 
+                                                                 styleClass="BlackButton"/>
+                                                
+                                            </p:panelGrid>
+                                        </h:form>
+                                    
+                                    </p:dialog>                                        
+                                </li>
                                 
 			</ul>
 		</nav><!-- / nav -->
