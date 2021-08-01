@@ -2,9 +2,6 @@
 
 _Mapa que muestra lugares de interes en la Republica Mexicana_
 
-### Como ejecutar . . . 🔧
-
-_(Ejemplo de linea de comando para una pequeña demostracion)_
 
 ## Herramientas de Desarrollo 🛠️
 
