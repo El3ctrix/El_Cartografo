@@ -2,33 +2,7 @@
 
 _Mapa que muestra lugares de interes en la Republica Mexicana_
 
-## Comenzando 🚀
-
-_(FALTAN INSTRUCCIONES DE COMO OBTENER UNA COPIA DEL PROYECTO)_
-
-### Pre-requisitos 📋
-
-_Que cosas necesitas para instalar el software y como instalarlas_
-
-```
-Dar un ejemplo
-```
-
 ### Como ejecutar . . . 🔧
-
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
-
-_Especificar paso a seguir_
-
-```
-Da un ejemplo de linea de comando para ejecutar este paso
-```
-
-_Y repetimos_
-
-```
-Mas ejemplos de lineas de comando para ejecutar los pasos de instalacion
-```
 
 _(Ejemplo de linea de comando para una pequeña demostracion)_
 
